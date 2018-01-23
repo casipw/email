@@ -12,7 +12,7 @@ func TestAttachment(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if strings.Contains(string(m.Bytes()), "text/calendar") == false {
+	if strings.Contains(string(m.BytesCRLF()), "text/calendar") == false {
 		t.Fatal("Issue with mailer")
 	}
 }
