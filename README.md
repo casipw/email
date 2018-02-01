@@ -21,13 +21,14 @@ package main
 import (
     "github.com/casipw/email"
     "net/mail"
+    "net/smtp"
 )
 
 func main() {
     m := email.NewMessage("Subject", "Body")
     m.From = mail.Address{Name: "Sender", Address: "from@example.com"}
     m.To = []string{"to@example.com"}
-    if err := m.Attach("file.pdf") {
+    if err := m.Attach("file.pdf"); err != nil {
         panic(err)
     }
 
@@ -40,6 +41,7 @@ func main() {
         panic(err)
     }
 }
+
 ```
 
 # Html
