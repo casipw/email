@@ -176,7 +176,7 @@ func (m *Message) bytes(lineSeparator string) []byte {
 				encoded := make([]byte, base64.StdEncoding.EncodedLen(len(attachment.Data)))
 				base64.StdEncoding.Encode(encoded, attachment.Data)
 
-				for len(encoded) > 60 {
+				for len(encoded) > 76 {
 					buf.Write(encoded[:76])
 					buf.WriteString(lineSeparator)
 					encoded = encoded[76:]
